@@ -1,0 +1,558 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		035CA5A115F45C78E0BA50F3 /* Pods_RESTClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 567D95E11F60C7F5300251F4 /* Pods_RESTClientTests.framework */; };
+		6329D5611E7156E500BDB2B6 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6329D5601E7156E500BDB2B6 /* test.jpg */; };
+		6329D5631E717C8800BDB2B6 /* JSONParcelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6329D5621E717C8800BDB2B6 /* JSONParcelable.swift */; };
+		6329D5651E717CA600BDB2B6 /* RESTClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6329D5641E717CA600BDB2B6 /* RESTClientError.swift */; };
+		6329D5671E717CDC00BDB2B6 /* ImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6329D5661E717CDC00BDB2B6 /* ImageType.swift */; };
+		632A67881E6E93D9004024FF /* RESTClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632A677E1E6E93D9004024FF /* RESTClient.framework */; };
+		632A678D1E6E93D9004024FF /* RESTClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632A678C1E6E93D9004024FF /* RESTClientTests.swift */; };
+		632A67991E6E9893004024FF /* RESTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632A67981E6E9893004024FF /* RESTClient.swift */; };
+		FA1E6326C30DD63DBCD30FF4 /* Pods_RESTClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05DC8091A35A44EC94C4C74 /* Pods_RESTClient.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		632A67891E6E93D9004024FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632A67751E6E93D9004024FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 632A677D1E6E93D9004024FF;
+			remoteInfo = RESTClient;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		32F9696D0D6E6FDCDC224366 /* Pods-RESTClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RESTClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-RESTClient/Pods-RESTClient.release.xcconfig"; sourceTree = "<group>"; };
+		5255224E45240739A64E442D /* Pods-RESTClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RESTClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RESTClient/Pods-RESTClient.debug.xcconfig"; sourceTree = "<group>"; };
+		567D95E11F60C7F5300251F4 /* Pods_RESTClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RESTClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6329D5601E7156E500BDB2B6 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
+		6329D5621E717C8800BDB2B6 /* JSONParcelable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParcelable.swift; sourceTree = "<group>"; };
+		6329D5641E717CA600BDB2B6 /* RESTClientError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTClientError.swift; sourceTree = "<group>"; };
+		6329D5661E717CDC00BDB2B6 /* ImageType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageType.swift; sourceTree = "<group>"; };
+		632A677E1E6E93D9004024FF /* RESTClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RESTClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		632A67821E6E93D9004024FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		632A67871E6E93D9004024FF /* RESTClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RESTClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		632A678C1E6E93D9004024FF /* RESTClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTClientTests.swift; sourceTree = "<group>"; };
+		632A678E1E6E93D9004024FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		632A67981E6E9893004024FF /* RESTClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTClient.swift; sourceTree = "<group>"; };
+		A05DC8091A35A44EC94C4C74 /* Pods_RESTClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RESTClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3331496058009C7E7D73120 /* Pods-RESTClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RESTClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RESTClientTests/Pods-RESTClientTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E30E0315CEB8B6776C4946FA /* Pods-RESTClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RESTClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RESTClientTests/Pods-RESTClientTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		632A677A1E6E93D9004024FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA1E6326C30DD63DBCD30FF4 /* Pods_RESTClient.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		632A67841E6E93D9004024FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				632A67881E6E93D9004024FF /* RESTClient.framework in Frameworks */,
+				035CA5A115F45C78E0BA50F3 /* Pods_RESTClientTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F66EA9D617E56E00BA5BC6E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5255224E45240739A64E442D /* Pods-RESTClient.debug.xcconfig */,
+				32F9696D0D6E6FDCDC224366 /* Pods-RESTClient.release.xcconfig */,
+				C3331496058009C7E7D73120 /* Pods-RESTClientTests.debug.xcconfig */,
+				E30E0315CEB8B6776C4946FA /* Pods-RESTClientTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		632A67741E6E93D9004024FF = {
+			isa = PBXGroup;
+			children = (
+				632A67801E6E93D9004024FF /* RESTClient */,
+				632A678B1E6E93D9004024FF /* RESTClientTests */,
+				632A677F1E6E93D9004024FF /* Products */,
+				1F66EA9D617E56E00BA5BC6E /* Pods */,
+				945B83F95E2C4D5B582B2433 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		632A677F1E6E93D9004024FF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				632A677E1E6E93D9004024FF /* RESTClient.framework */,
+				632A67871E6E93D9004024FF /* RESTClientTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		632A67801E6E93D9004024FF /* RESTClient */ = {
+			isa = PBXGroup;
+			children = (
+				632A67821E6E93D9004024FF /* Info.plist */,
+				632A67981E6E9893004024FF /* RESTClient.swift */,
+				6329D5641E717CA600BDB2B6 /* RESTClientError.swift */,
+				6329D5621E717C8800BDB2B6 /* JSONParcelable.swift */,
+				6329D5661E717CDC00BDB2B6 /* ImageType.swift */,
+			);
+			path = RESTClient;
+			sourceTree = "<group>";
+		};
+		632A678B1E6E93D9004024FF /* RESTClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				632A678C1E6E93D9004024FF /* RESTClientTests.swift */,
+				632A678E1E6E93D9004024FF /* Info.plist */,
+				6329D5601E7156E500BDB2B6 /* test.jpg */,
+			);
+			path = RESTClientTests;
+			sourceTree = "<group>";
+		};
+		945B83F95E2C4D5B582B2433 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A05DC8091A35A44EC94C4C74 /* Pods_RESTClient.framework */,
+				567D95E11F60C7F5300251F4 /* Pods_RESTClientTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		632A677B1E6E93D9004024FF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		632A677D1E6E93D9004024FF /* RESTClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 632A67921E6E93D9004024FF /* Build configuration list for PBXNativeTarget "RESTClient" */;
+			buildPhases = (
+				8DF1F6698F97F55AE4B76DB2 /* [CP] Check Pods Manifest.lock */,
+				632A67791E6E93D9004024FF /* Sources */,
+				632A677A1E6E93D9004024FF /* Frameworks */,
+				632A677B1E6E93D9004024FF /* Headers */,
+				632A677C1E6E93D9004024FF /* Resources */,
+				04700C3FC7D8BFC7B556B6AC /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RESTClient;
+			productName = RESTClient;
+			productReference = 632A677E1E6E93D9004024FF /* RESTClient.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		632A67861E6E93D9004024FF /* RESTClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 632A67951E6E93D9004024FF /* Build configuration list for PBXNativeTarget "RESTClientTests" */;
+			buildPhases = (
+				09C55C87689C52FA915832E9 /* [CP] Check Pods Manifest.lock */,
+				632A67831E6E93D9004024FF /* Sources */,
+				632A67841E6E93D9004024FF /* Frameworks */,
+				632A67851E6E93D9004024FF /* Resources */,
+				CB54B3A8B81FF297EED9CDFA /* [CP] Embed Pods Frameworks */,
+				9C28A596240E54DACF23F328 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				632A678A1E6E93D9004024FF /* PBXTargetDependency */,
+			);
+			name = RESTClientTests;
+			productName = RESTClientTests;
+			productReference = 632A67871E6E93D9004024FF /* RESTClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		632A67751E6E93D9004024FF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Evgeny Kubrakov";
+				TargetAttributes = {
+					632A677D1E6E93D9004024FF = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 44352442RD;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+					};
+					632A67861E6E93D9004024FF = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 44352442RD;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 632A67781E6E93D9004024FF /* Build configuration list for PBXProject "RESTClient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 632A67741E6E93D9004024FF;
+			productRefGroup = 632A677F1E6E93D9004024FF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				632A677D1E6E93D9004024FF /* RESTClient */,
+				632A67861E6E93D9004024FF /* RESTClientTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		632A677C1E6E93D9004024FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		632A67851E6E93D9004024FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6329D5611E7156E500BDB2B6 /* test.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04700C3FC7D8BFC7B556B6AC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RESTClient/Pods-RESTClient-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		09C55C87689C52FA915832E9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8DF1F6698F97F55AE4B76DB2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9C28A596240E54DACF23F328 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RESTClientTests/Pods-RESTClientTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB54B3A8B81FF297EED9CDFA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RESTClientTests/Pods-RESTClientTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		632A67791E6E93D9004024FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6329D5631E717C8800BDB2B6 /* JSONParcelable.swift in Sources */,
+				6329D5671E717CDC00BDB2B6 /* ImageType.swift in Sources */,
+				632A67991E6E9893004024FF /* RESTClient.swift in Sources */,
+				6329D5651E717CA600BDB2B6 /* RESTClientError.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		632A67831E6E93D9004024FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				632A678D1E6E93D9004024FF /* RESTClientTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		632A678A1E6E93D9004024FF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 632A677D1E6E93D9004024FF /* RESTClient */;
+			targetProxy = 632A67891E6E93D9004024FF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		632A67901E6E93D9004024FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		632A67911E6E93D9004024FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		632A67931E6E93D9004024FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5255224E45240739A64E442D /* Pods-RESTClient.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 44352442RD;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = RESTClient/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ekubrakov.RESTClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		632A67941E6E93D9004024FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32F9696D0D6E6FDCDC224366 /* Pods-RESTClient.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 44352442RD;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = RESTClient/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ekubrakov.RESTClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		632A67961E6E93D9004024FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3331496058009C7E7D73120 /* Pods-RESTClientTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 44352442RD;
+				INFOPLIST_FILE = RESTClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ekubrakov.RESTClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		632A67971E6E93D9004024FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E30E0315CEB8B6776C4946FA /* Pods-RESTClientTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 44352442RD;
+				INFOPLIST_FILE = RESTClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ekubrakov.RESTClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		632A67781E6E93D9004024FF /* Build configuration list for PBXProject "RESTClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				632A67901E6E93D9004024FF /* Debug */,
+				632A67911E6E93D9004024FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		632A67921E6E93D9004024FF /* Build configuration list for PBXNativeTarget "RESTClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				632A67931E6E93D9004024FF /* Debug */,
+				632A67941E6E93D9004024FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		632A67951E6E93D9004024FF /* Build configuration list for PBXNativeTarget "RESTClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				632A67961E6E93D9004024FF /* Debug */,
+				632A67971E6E93D9004024FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 632A67751E6E93D9004024FF /* Project object */;
+}
