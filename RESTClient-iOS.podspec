@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 
-  s.name         = "RESTClient"
+  s.name         = "RESTClient-iOS"
   s.version      = "0.1.0"
   s.summary      = "RESTClient is a lightweight wrapper for Alamofire requests that works with JSON responses"
   s.homepage     = "https://github.com/Streetmage/RESTClient"
