@@ -68,7 +68,7 @@ open class RESTClient {
         self.sessionManager.request(self.makeAbsolutePath(path),
                                     method: method,
                                     parameters: requestData,
-                                    encoding: JSONEncoding.default,
+                                    encoding: encoding,
                                     headers: self.additionalHeaders).validate().responseJSON { response in
                                         self.handleResponse(response, completion: completion)
         }
