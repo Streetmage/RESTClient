@@ -18,6 +18,8 @@ public typealias RESTClientCompletion = (_ success: Bool, _ responseData: JSONPa
 
 open class RESTClient {
     
+    public static var isLoggingEnabled = false
+    
     public static var defaultClient: RESTClient?
     
     public var additionalHeaders: HTTPHeaders?
@@ -65,6 +67,11 @@ open class RESTClient {
                         requestData: JSONParameters? = nil,
                         encoding: ParameterEncoding = URLEncoding.default,
                         completion: RESTClientCompletion? = nil) {
+        
+        if (RESTClient.isLoggingEnabled) {
+            printLog(with: "Request", method: method, path: path, parameters: requestData)
+        }
+        
         self.sessionManager.request(self.makeAbsolutePath(path),
                                     method: method,
                                     parameters: requestData,
@@ -80,6 +87,10 @@ open class RESTClient {
                        parameters: FormDataParameters? = nil,
                        method: HTTPMethod = .post,
                        completion: RESTClientCompletion? = nil) {
+        
+        if (RESTClient.isLoggingEnabled) {
+            printLog(with: "Upload", method: method, path: path, parameters: parameters)
+        }
         
         var imageData: Data? = nil
         switch imageType {
@@ -99,7 +110,8 @@ open class RESTClient {
                 }
                 multipartFormData.append(safeImageData,
                                          withName: "img",
-                                         fileName: "img.jpeg", mimeType: "image/jpeg")
+                                         fileName: "img.jpeg",
+                                         mimeType: "image/jpeg")
             }
         }
         
@@ -120,6 +132,50 @@ open class RESTClient {
                                     }
         }
         
+    }
+    
+    public func upload(videoData: Data,
+                       videoDataType: String,
+                       to path: String,
+                       parameters: FormDataParameters? = nil,
+                       method: HTTPMethod = .post,
+                       completion: RESTClientCompletion? = nil) {
+        
+        if (RESTClient.isLoggingEnabled) {
+            printLog(with: "Upload", method: method, path: path, parameters: parameters)
+        }
+        
+        let multipartFormData = { (multipartFormData: MultipartFormData) in
+            
+            if let safeParameters = parameters {
+                for (key, value) in safeParameters {
+                    multipartFormData.append(value.data(using: .utf8)!, withName: key)
+                }
+            }
+            multipartFormData.append(videoData,
+                                     withName: "video",
+                                     fileName: "video.\(videoDataType)",
+                mimeType: "application/octet-stream")
+        }
+        
+        self.sessionManager.upload(multipartFormData: multipartFormData,
+                                   to: self.makeAbsolutePath(path),
+                                   method: method,
+                                   headers: self.additionalHeaders,
+                                   encodingCompletion: { encodingCompletionResult in
+                                    
+                                    switch encodingCompletionResult {
+                                    case .success(let request, _, _):
+                                        request.responseJSON(completionHandler: { response in
+                                            self.handleResponse(response, completion: completion)
+                                        })
+                                    case .failure(let error):
+                                        if let safeCompletion = completion {
+                                            safeCompletion(false, nil, error)
+                                        }
+                                        
+                                    }
+        })
     }
     
     // MARK: Private Methods
@@ -162,6 +218,13 @@ open class RESTClient {
         
         completion(error == nil, result, error)
         
+    }
+    
+    private func printLog(with title: String, method: HTTPMethod, path: String, parameters: Any?) {
+        print("\n------------------\(title)---------------------\n\n" +
+            "\(method.rawValue) \(self.makeAbsolutePath(path))\n\n" +
+            "Parameters: \(String(describing: parameters))" +
+            "\n\n=============================================\n")
     }
     
 }

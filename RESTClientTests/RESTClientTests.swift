@@ -14,6 +14,7 @@ class RESTClientTests: XCTestCase {
     override func setUp() {
         super.setUp()
         let restClient = RESTClient(servicePath: "https://jsonplaceholder.typicode.com")
+        RESTClient.isLoggingEnabled = true
         RESTClient.defaultClient = restClient
     }
     
@@ -81,4 +82,18 @@ class RESTClientTests: XCTestCase {
         }
     }
     
+    func testVideoUpload() {
+        let expectation = self.expectation(description: "video upload")
+        let length = 2048
+        let bytes = [UInt32](repeating: 0, count: length).map { _ in arc4random() }
+        let videoData = Data(bytes: bytes, count: length)
+        let testParameters = ["test" : "test"]
+        RESTClient.defaultClient?.upload(videoData: videoData, videoDataType: "mp4", to: "/posts", parameters: testParameters) { success, responseData, error in
+            expectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 30.0) { error in
+            XCTAssertNil(error, (error?.localizedDescription)!)
+        }
+
+    }
 }
