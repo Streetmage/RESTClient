@@ -137,6 +137,55 @@ open class RESTClient {
     public func upload(videoData: Data,
                        videoDataType: String,
                        to path: String,
+                       jsonParameters: JSONParameters,
+                       jsonParametersTitle: String,
+                       method: HTTPMethod = .post,
+                       completion: RESTClientCompletion? = nil) {
+        
+        if (RESTClient.isLoggingEnabled) {
+            printLog(with: "Upload", method: method, path: path, parameters: jsonParameters)
+        }
+        
+        let multipartFormData = { (multipartFormData: MultipartFormData) in
+            
+            
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject:jsonParameters, options: .prettyPrinted)
+                multipartFormData.append(jsonData, withName: jsonParametersTitle, mimeType:"application/json")
+                
+            } catch {
+                
+            }
+            
+            multipartFormData.append(videoData,
+                                     withName: "video",
+                                     fileName: "video.\(videoDataType)",
+                mimeType: "application/octet-stream")
+        }
+        
+        self.sessionManager.upload(multipartFormData: multipartFormData,
+                                   to: self.makeAbsolutePath(path),
+                                   method: method,
+                                   headers: self.additionalHeaders,
+                                   encodingCompletion: { encodingCompletionResult in
+                                    
+                                    switch encodingCompletionResult {
+                                    case .success(let request, _, _):
+                                        request.validate().responseJSON(completionHandler: { response in
+                                            self.handleResponse(response, completion: completion)
+                                        })
+                                    case .failure(let error):
+                                        if let safeCompletion = completion {
+                                            safeCompletion(false, nil, error)
+                                        }
+                                        
+                                    }
+        })
+    }
+    
+    public func upload(videoData: Data,
+                       videoDataType: String,
+                       to path: String,
                        parameters: FormDataParameters? = nil,
                        method: HTTPMethod = .post,
                        completion: RESTClientCompletion? = nil) {
