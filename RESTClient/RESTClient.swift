@@ -140,6 +140,7 @@ open class RESTClient {
                        jsonParameters: JSONParameters?,
                        jsonParametersTitle: String?,
                        method: HTTPMethod = .post,
+                       progressHandler: ProgressHandler? = nil,
                        completion: RESTClientCompletion? = nil) {
         
         if (RESTClient.isLoggingEnabled) {
@@ -171,6 +172,9 @@ open class RESTClient {
                                         request.validate().responseJSON(completionHandler: { response in
                                             self.handleResponse(response, completion: completion)
                                         })
+                                        request.uploadProgress { progress in
+                                            progressHandler?(progress.fractionCompleted)
+                                        }
                                     case .failure(let error):
                                         if let safeCompletion = completion {
                                             safeCompletion(false, nil, error)
