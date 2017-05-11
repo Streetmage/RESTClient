@@ -15,6 +15,7 @@ public typealias JSONDictionary = JSONParameters
 public typealias JSONArray = Array<JSONParameters>
 
 public typealias RESTClientCompletion = (_ success: Bool, _ responseData: JSONParcelable?, _ error: Error?) -> Void
+public typealias ProgressHandler = (_ fractionCompleted: Double) -> Void
 
 open class RESTClient {
     
