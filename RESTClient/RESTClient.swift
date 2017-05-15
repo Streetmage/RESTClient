@@ -35,30 +35,33 @@ open class RESTClient {
         self.sessionManager = Alamofire.SessionManager.default
     }
     
-    public func get(at path: String, requestData: JSONParameters? = nil, completion: RESTClientCompletion? = nil) {
-        self.request(at: path, requestData: requestData, completion: completion)
+    public func get(at path: String, requestData: JSONParameters? = nil, needsJSONParsing: Bool = true, completion: RESTClientCompletion? = nil) {
+        self.request(at: path, requestData: requestData, needsJSONParsing: needsJSONParsing, completion: completion)
     }
     
-    public func post(at path: String, requestData: JSONParameters? = nil, completion: RESTClientCompletion? = nil) {
+    public func post(at path: String, requestData: JSONParameters? = nil, needsJSONParsing: Bool = true, completion: RESTClientCompletion? = nil) {
         self.request(at: path,
                      method: .post,
                      requestData: requestData,
+                     needsJSONParsing: needsJSONParsing,
                      encoding:JSONEncoding.default,
                      completion: completion)
     }
     
-    public func put(at path: String, requestData: JSONParameters? = nil, completion: RESTClientCompletion? = nil) {
+    public func put(at path: String, requestData: JSONParameters? = nil, needsJSONParsing: Bool = true, completion: RESTClientCompletion? = nil) {
         self.request(at: path,
                      method: .put,
                      requestData: requestData,
+                     needsJSONParsing: needsJSONParsing,
                      encoding:JSONEncoding.default,
                      completion: completion)
     }
     
-    public func delete(at path: String, requestData: JSONParameters? = nil, completion: RESTClientCompletion? = nil) {
+    public func delete(at path: String, requestData: JSONParameters? = nil, needsJSONParsing: Bool = true, completion: RESTClientCompletion? = nil) {
         self.request(at: path,
                      method: .delete,
                      requestData: requestData,
+                     needsJSONParsing: needsJSONParsing,
                      encoding:JSONEncoding.default,
                      completion: completion)
     }
@@ -66,6 +69,7 @@ open class RESTClient {
     public func request(at path: String,
                         method: HTTPMethod = .get,
                         requestData: JSONParameters? = nil,
+                        needsJSONParsing: Bool = true,
                         encoding: ParameterEncoding = URLEncoding.default,
                         completion: RESTClientCompletion? = nil) {
         
@@ -73,12 +77,21 @@ open class RESTClient {
             printLog(with: "Request", method: method, path: path, parameters: requestData)
         }
         
-        self.sessionManager.request(self.makeAbsolutePath(path),
-                                    method: method,
-                                    parameters: requestData,
-                                    encoding: encoding,
-                                    headers: self.additionalHeaders).validate().responseJSON { response in
-                                        self.handleResponse(response, completion: completion)
+        let request = self.sessionManager.request(self.makeAbsolutePath(path),
+                                                  method: method,
+                                                  parameters: requestData,
+                                                  encoding: encoding,
+                                                  headers: self.additionalHeaders)
+        request.validate()
+        
+        if needsJSONParsing {
+            request.responseJSON { response in
+                self.handleJSONResponse(response, completion: completion)
+            }
+        } else {
+            request.response { response in
+                self.handleDefaultDataResponse(response, completion: completion)
+            }
         }
     }
     
@@ -123,7 +136,7 @@ open class RESTClient {
                                     switch encodingCompletionResult {
                                     case .success(let request, _, _):
                                         request.responseJSON(completionHandler: { response in
-                                            self.handleResponse(response, completion: completion)
+                                            self.handleJSONResponse(response, completion: completion)
                                         })
                                     case .failure(let error):
                                         if let safeCompletion = completion {
@@ -171,7 +184,7 @@ open class RESTClient {
                                     switch encodingCompletionResult {
                                     case .success(let request, _, _):
                                         request.validate().responseJSON(completionHandler: { response in
-                                            self.handleResponse(response, completion: completion)
+                                            self.handleJSONResponse(response, completion: completion)
                                         })
                                         request.uploadProgress { progress in
                                             progressHandler?(progress.fractionCompleted)
@@ -192,7 +205,7 @@ open class RESTClient {
         return absolutePath
     }
     
-    private func handleResponse(_ response: DataResponse<Any>, completion: RESTClientCompletion?) {
+    private func handleJSONResponse(_ response: DataResponse<Any>, completion: RESTClientCompletion?) {
         if let safeCompletion = completion {
             switch response.result {
             case .success:
@@ -202,6 +215,13 @@ open class RESTClient {
                 safeCompletion(false, nil, error)
                 
             }
+        }
+    }
+    
+    private func handleDefaultDataResponse(_ response: DefaultDataResponse, completion: RESTClientCompletion?) {
+        if let safeCompletion = completion {
+            let error = response.error
+            safeCompletion(error == nil, nil, error)
         }
     }
     
