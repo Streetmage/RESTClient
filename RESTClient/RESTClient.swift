@@ -35,32 +35,59 @@ open class RESTClient {
         self.sessionManager = Alamofire.SessionManager.default
     }
     
-    public func get(at path: String, requestData: JSONParameters? = nil, needsJSONParsing: Bool = true, completion: RESTClientCompletion? = nil) {
-        self.request(at: path, requestData: requestData, needsJSONParsing: needsJSONParsing, completion: completion)
+    public func get(at path: String,
+                    requestData: JSONParameters? = nil,
+                    requestHeaders: HTTPHeaders? = nil,
+                    needsJSONParsing: Bool = true,
+                    completion: RESTClientCompletion? = nil) {
+        
+        self.request(at: path,
+                     requestData: requestData,
+                     requestHeaders: requestHeaders,
+                     needsJSONParsing: needsJSONParsing,
+                     completion: completion)
     }
     
-    public func post(at path: String, requestData: JSONParameters? = nil, needsJSONParsing: Bool = true, completion: RESTClientCompletion? = nil) {
+    public func post(at path: String,
+                     requestData: JSONParameters? = nil,
+                     requestHeaders: HTTPHeaders? = nil,
+                     needsJSONParsing: Bool = true,
+                     completion: RESTClientCompletion? = nil) {
+        
         self.request(at: path,
                      method: .post,
                      requestData: requestData,
+                     requestHeaders: requestHeaders,
                      needsJSONParsing: needsJSONParsing,
                      encoding:JSONEncoding.default,
                      completion: completion)
     }
     
-    public func put(at path: String, requestData: JSONParameters? = nil, needsJSONParsing: Bool = true, completion: RESTClientCompletion? = nil) {
+    public func put(at path: String,
+                    requestData: JSONParameters? = nil,
+                    requestHeaders: HTTPHeaders? = nil,
+                    needsJSONParsing: Bool = true,
+                    completion: RESTClientCompletion? = nil) {
+        
         self.request(at: path,
                      method: .put,
                      requestData: requestData,
+                     requestHeaders: requestHeaders,
                      needsJSONParsing: needsJSONParsing,
                      encoding:JSONEncoding.default,
                      completion: completion)
     }
     
-    public func delete(at path: String, requestData: JSONParameters? = nil, needsJSONParsing: Bool = true, completion: RESTClientCompletion? = nil) {
+    public func delete(at path: String,
+                       requestData: JSONParameters? = nil,
+                       requestHeaders: HTTPHeaders? = nil,
+                       needsJSONParsing: Bool = true,
+                       completion: RESTClientCompletion? = nil) {
+        
         self.request(at: path,
                      method: .delete,
                      requestData: requestData,
+                     requestHeaders: requestHeaders,
                      needsJSONParsing: needsJSONParsing,
                      encoding:JSONEncoding.default,
                      completion: completion)
@@ -69,6 +96,7 @@ open class RESTClient {
     public func request(at path: String,
                         method: HTTPMethod = .get,
                         requestData: JSONParameters? = nil,
+                        requestHeaders: HTTPHeaders? = nil,
                         needsJSONParsing: Bool = true,
                         encoding: ParameterEncoding = URLEncoding.default,
                         completion: RESTClientCompletion? = nil) {
@@ -77,11 +105,16 @@ open class RESTClient {
             printLog(with: "Request", method: method, path: path, parameters: requestData)
         }
         
+        var headers = self.additionalHeaders
+        if let safeRequestHeaders = requestHeaders {
+            headers = headers != nil ? headers?.merged(with: safeRequestHeaders) : safeRequestHeaders
+        }
+        
         let request = self.sessionManager.request(self.makeAbsolutePath(path),
                                                   method: method,
                                                   parameters: requestData,
                                                   encoding: encoding,
-                                                  headers: self.additionalHeaders)
+                                                  headers: headers)
         request.validate()
         
         if needsJSONParsing {

@@ -15,6 +15,7 @@
 		632A67881E6E93D9004024FF /* RESTClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632A677E1E6E93D9004024FF /* RESTClient.framework */; };
 		632A678D1E6E93D9004024FF /* RESTClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632A678C1E6E93D9004024FF /* RESTClientTests.swift */; };
 		632A67991E6E9893004024FF /* RESTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632A67981E6E9893004024FF /* RESTClient.swift */; };
+		633188BC1ED439A200A9E17F /* Dictionary+Merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633188BB1ED439A200A9E17F /* Dictionary+Merge.swift */; };
 		FA1E6326C30DD63DBCD30FF4 /* Pods_RESTClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05DC8091A35A44EC94C4C74 /* Pods_RESTClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		632A678C1E6E93D9004024FF /* RESTClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTClientTests.swift; sourceTree = "<group>"; };
 		632A678E1E6E93D9004024FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		632A67981E6E9893004024FF /* RESTClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTClient.swift; sourceTree = "<group>"; };
+		633188BB1ED439A200A9E17F /* Dictionary+Merge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Merge.swift"; sourceTree = "<group>"; };
 		A05DC8091A35A44EC94C4C74 /* Pods_RESTClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RESTClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3331496058009C7E7D73120 /* Pods-RESTClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RESTClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RESTClientTests/Pods-RESTClientTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E30E0315CEB8B6776C4946FA /* Pods-RESTClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RESTClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RESTClientTests/Pods-RESTClientTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				6329D5641E717CA600BDB2B6 /* RESTClientError.swift */,
 				6329D5621E717C8800BDB2B6 /* JSONParcelable.swift */,
 				6329D5661E717CDC00BDB2B6 /* ImageType.swift */,
+				633188BB1ED439A200A9E17F /* Dictionary+Merge.swift */,
 			);
 			path = RESTClient;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 			files = (
 				6329D5631E717C8800BDB2B6 /* JSONParcelable.swift in Sources */,
 				6329D5671E717CDC00BDB2B6 /* ImageType.swift in Sources */,
+				633188BC1ED439A200A9E17F /* Dictionary+Merge.swift in Sources */,
 				632A67991E6E9893004024FF /* RESTClient.swift in Sources */,
 				6329D5651E717CA600BDB2B6 /* RESTClientError.swift in Sources */,
 			);

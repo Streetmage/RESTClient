@@ -14,13 +14,14 @@ class RESTClientTests: XCTestCase {
     override func setUp() {
         super.setUp()
         let restClient = RESTClient(servicePath: "https://jsonplaceholder.typicode.com")
+        restClient.additionalHeaders = ["Content-Type": "application/json"]
         RESTClient.isLoggingEnabled = true
         RESTClient.defaultClient = restClient
     }
     
     func testGetJSON() {
         let expectation = self.expectation(description: "get")
-        RESTClient.defaultClient?.get(at: "/posts") { success, responseData, error in
+        RESTClient.defaultClient?.get(at: "/posts", requestHeaders: ["Accept": "application/json"]) { success, responseData, error in
             XCTAssertNil(error, (error?.localizedDescription)!)
             XCTAssertTrue(success)
             XCTAssertNotNil(responseData)
